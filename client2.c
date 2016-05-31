@@ -58,7 +58,7 @@ int main(int argc , char *argv[])
             fgets(buffer, BUFF_SIZE, stdin);
 
                 //Send some data
-            if( send(sock , buffer , strlen(buffer) +1, 0) < 0)
+            if( write(sock , buffer , strlen(buffer) +1) < 0)
             {
                 puts("Send failed.");
                 return 1;
@@ -83,7 +83,7 @@ int main(int argc , char *argv[])
 
             sprintf(buffer, "%d", payment);
                 //Send some data
-            if( send(sock , buffer, BUFF_SIZE, 0) < 0)
+            if( write(sock , buffer, BUFF_SIZE) < 0)
             {
                 puts("Send failed.");
                 return 1;
